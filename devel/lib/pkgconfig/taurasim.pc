@@ -1,8 +1,0 @@
-prefix=/home/thxssio/projects/VSSS/devel
-
-Name: taurasim
-Description: Description of taurasim
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
