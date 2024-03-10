@@ -17,7 +17,7 @@ import rospy
 import rospkg
 import roslaunch
 
-PACKAGE_NAME = 'travesim'
+PACKAGE_NAME = 'taurasim'
 SPAWN_LAUNCHFILE = 'spawn_robot.launch'
 
 COLORS = ["blue", "yellow"]
@@ -103,7 +103,7 @@ if __name__ == '__main__':
 
         if should_play_sound:
             rospack = rospkg.RosPack()
-            path = rospack.get_path('travesim')
+            path = rospack.get_path('taurasim')
 
             pygame.mixer.init()
 
