@@ -1,0 +1,37 @@
+<!-- Reference:
+https://github.com/ros/urdf_sim_tutorial -->
+
+<launch>
+
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="true"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="world_name" default="vss_field.world"/>
+  <arg name="recording" default="false"/>
+
+  <!-- Add our project workspace to Gazebo index to load custom models -->
+  <env name="GAZEBO_RESOURCE_PATH" value="$(find taurasim)"/>
+  <env name="GAZEBO_MODEL_PATH" value="$(find taurasim)/models"/>
+
+  <!-- Load world model -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="world_name" value="$(find taurasim)/worlds/$(arg world_name)"/>
+    <arg name="recording" value="$(arg recording)"/>
+  </include>
+
+  <!-- Load node to re-publish the gazebo message in the sintax of
+    ThunderVolt project -->
+  <node name="vision_proxy" pkg="taurasim" type="vision_proxy.py"/>
+
+  <group ns="camera/image_raw">
+    <rosparam param="disable_pub_plugins">
+      - 'image_transport/compressedDepth'
+    </rosparam>
+  </group>
+
+</launch>

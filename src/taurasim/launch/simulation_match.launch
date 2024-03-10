@@ -1,0 +1,68 @@
+<launch>
+
+  <!-- Load robot model -->
+  <arg name="model" default="$(find taurasim)/urdf/generic_vss_robot.xacro"/>
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="true"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="world_name" default="vss_field.world"/>
+  <arg name="recording" default="false"/>
+  <arg name="twist_interface" default="true"/>
+  <arg name="sound" default="true"/>
+  <arg name="controller_config_file" default=""/>
+  <arg name="ros_control_config_file" default="$(find taurasim)/config/ros_control_config.yml"/>
+
+  <!-- Control option -->
+  <arg name="keyboard" default="false"/>
+
+  <!-- Load gazebo simulation -->
+  <include file="$(find taurasim)/launch/gazebo.launch">
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="recording" value="$(arg recording)"/>
+  </include>
+
+  <group if="$(arg keyboard)">
+    <node name="keyboard_controller" pkg="taurasim" type="keyboard_node.py"/>
+  </group>
+
+  <!-- NOTE: The namespace prefix for the topic name is set in the <gazebo>
+  inside the generic_vss_robot.gazebo file -->
+
+  <!-- Spawn yellow team -->
+  <node name="yellow_team_spawner" pkg="taurasim" type="spawn_robots.py" output="screen">
+    <param if="$(eval ((arg('world_name') == 'vss_field.world') or (arg('world_name') == 'vss_field_camera.world')))"
+           name="robots_per_team"
+           value="3"/>
+    <param unless="$(eval ((arg('world_name') == 'vss_field.world') or (arg('world_name') == 'vss_field_camera.world')))"
+           name="robots_per_team"
+           value="5"/>
+    <param name="team_color" value="yellow" />
+    <param name="model" value="$(arg model)" />
+    <param name="twist_interface" value="$(arg twist_interface)"/>
+    <param name="sound" value="$(eval arg('sound'))" type="bool"/>
+    <param name="controller_config_file" value="$(arg controller_config_file)"/>
+    <param name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
+  </node>
+
+  <!-- Spawn blue team -->
+  <node name="blue_team_spawner" pkg="taurasim" type="spawn_robots.py" output="screen">
+    <param if="$(eval ((arg('world_name') == 'vss_field.world') or (arg('world_name') == 'vss_field_camera.world')))"
+           name="robots_per_team"
+           value="3"/>
+    <param unless="$(eval ((arg('world_name') == 'vss_field.world') or (arg('world_name') == 'vss_field_camera.world')))"
+           name="robots_per_team"
+           value="5"/>
+    <param name="team_color" value="blue" />
+    <param name="model" value="$(arg model)" />
+    <param name="twist_interface" value="$(arg twist_interface)"/>
+    <param name="sound" value="$(eval arg('sound'))" type="bool"/>
+    <param name="controller_config_file" value="$(arg controller_config_file)"/>
+    <param name="ros_control_config_file" value="$(arg ros_control_config_file)"/>
+  </node>
+
+</launch>

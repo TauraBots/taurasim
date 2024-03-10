@@ -8,7 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH='/home/thxssio/projects/VSSS/build_isolated/taurasim/devel/devel:/home/thxssio/projects/matrice_ws/devel:/opt/ros/noetic'
-export LD_LIBRARY_PATH='/home/thxssio/projects/matrice_ws/devel/lib:/opt/ros/noetic/lib'
+export LD_LIBRARY_PATH='/home/thxssio/projects/VSSS/build_isolated/taurasim/devel/devel/lib:/home/thxssio/projects/matrice_ws/devel/lib:/opt/ros/noetic/lib'
+export PKG_CONFIG_PATH="/home/thxssio/projects/VSSS/build_isolated/taurasim/devel/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/thxssio/projects/VSSS/build_isolated/taurasim/devel'
 export ROSLISP_PACKAGE_DIRECTORIES='/home/thxssio/projects/VSSS/build_isolated/taurasim/devel/devel/share/common-lisp:/home/thxssio/projects/matrice_ws/devel/share/common-lisp'
 export ROS_PACKAGE_PATH='/home/thxssio/projects/VSSS/src/taurasim:/home/thxssio/projects/matrice_ws/src:/opt/ros/noetic/share'
