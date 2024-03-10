@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>taurasim</name>
+  <version>3.0.0</version>
+  <description> The TauraSim package provides a simulation environment for VSSS robots. 
+  It includes configurations for robot models, controllers, and simulation worlds.</description>
+  <maintainer email="thxssio@gmail.com">Thassio</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roslaunch</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>velocity_controllers</depend>
+  <depend>effort_controllers</depend>
+  <depend>rviz</depend>
+  <depend>joint_state_publisher</depend>
+  <depend>gazebo</depend>
+
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>rospy</build_depend>
+
+  <build_export_depend>geometry_msgs</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+
+  <exec_depend>image_view</exec_depend>
+  <exec_depend>rosbag</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>python3-pygame</exec_depend>
+
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+</package>
