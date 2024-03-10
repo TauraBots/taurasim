@@ -1,0 +1,2 @@
+taurasim
+-DCATKIN_DEVEL_PREFIX=/home/thxssio/projects/VSSS/devel -DCMAKE_INSTALL_PREFIX=/home/thxssio/projects/VSSS/install -G Unix Makefiles
