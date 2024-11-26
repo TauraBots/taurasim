@@ -1,0 +1,6 @@
+source;share/taurasim/hook/pythonpath.ps1
+source;share/taurasim/hook/pythonpath.dsv
+source;share/taurasim/hook/pythonpath.sh
+source;share/taurasim/hook/ament_prefix_path.ps1
+source;share/taurasim/hook/ament_prefix_path.dsv
+source;share/taurasim/hook/ament_prefix_path.sh

@@ -1,0 +1,34 @@
+[0.933s] Invoking command in '/home/lucas/taurasim_ws/src/taurasim': PYTHONPATH=/home/lucas/taurasim_ws/src/taurasim/build/taurasim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lucas/taurasim_ws/src/taurasim/install/taurasim/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/taurasim build --build-base /home/lucas/taurasim_ws/src/taurasim/build/taurasim/build install --record /home/lucas/taurasim_ws/src/taurasim/build/taurasim/install.log --single-version-externally-managed install_data
+[1.229s] running egg_info
+[1.230s] writing build/taurasim/taurasim.egg-info/PKG-INFO
+[1.231s] writing dependency_links to build/taurasim/taurasim.egg-info/dependency_links.txt
+[1.231s] writing requirements to build/taurasim/taurasim.egg-info/requires.txt
+[1.231s] writing top-level names to build/taurasim/taurasim.egg-info/top_level.txt
+[1.271s] reading manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+[1.272s] writing manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+[1.273s] running build
+[1.273s] running build_py
+[1.273s] running install
+[1.273s] running install_lib
+[1.275s] running install_data
+[1.276s] creating /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/config
+[1.276s] copying config/ros_control_config.yml -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/config
+[1.276s] copying config/motor_diff_drive.yml -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/config
+[1.276s] copying config/motor_direct_drive.yml -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/config
+[1.277s] creating /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+[1.277s] copying urdf/generic_vss_robot.gazebo -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+[1.277s] copying urdf/motor.xacro -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+[1.278s] copying urdf/generic_vss_robot.xacro -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+[1.278s] copying urdf/generic_vss_robot.urdf -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+[1.278s] copying urdf/generic_vss_robot.color -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+[1.279s] creating /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+[1.279s] copying meshes/base_link_col.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+[1.279s] copying meshes/roda_esq_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+[1.279s] copying meshes/parede_dir_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+[1.280s] copying meshes/base_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+[1.280s] copying meshes/chapeu_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+[1.280s] copying meshes/parede_esq_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+[1.280s] copying meshes/roda_dir_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+[1.281s] creating /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/media
+[1.281s] error: can't copy 'media/materials': doesn't exist or not a regular file
+[1.305s] Invoked command in '/home/lucas/taurasim_ws/src/taurasim' returned '1': PYTHONPATH=/home/lucas/taurasim_ws/src/taurasim/build/taurasim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lucas/taurasim_ws/src/taurasim/install/taurasim/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/taurasim build --build-base /home/lucas/taurasim_ws/src/taurasim/build/taurasim/build install --record /home/lucas/taurasim_ws/src/taurasim/build/taurasim/install.log --single-version-externally-managed install_data

@@ -1,0 +1,31 @@
+running egg_info
+writing build/taurasim/taurasim.egg-info/PKG-INFO
+writing dependency_links to build/taurasim/taurasim.egg-info/dependency_links.txt
+writing requirements to build/taurasim/taurasim.egg-info/requires.txt
+writing top-level names to build/taurasim/taurasim.egg-info/top_level.txt
+reading manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+writing manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+creating /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/config
+copying config/ros_control_config.yml -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/config
+copying config/motor_diff_drive.yml -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/config
+copying config/motor_direct_drive.yml -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/config
+creating /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+copying urdf/generic_vss_robot.gazebo -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+copying urdf/motor.xacro -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+copying urdf/generic_vss_robot.xacro -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+copying urdf/generic_vss_robot.urdf -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+copying urdf/generic_vss_robot.color -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf
+creating /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+copying meshes/base_link_col.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+copying meshes/roda_esq_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+copying meshes/parede_dir_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+copying meshes/base_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+copying meshes/chapeu_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+copying meshes/parede_esq_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+copying meshes/roda_dir_link.stl -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/meshes
+creating /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/media

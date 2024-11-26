@@ -1,0 +1,23 @@
+controller_manager:
+  ros__parameters:
+    controller_list:
+      - name: diff_drive_controller
+        type: "diff_drive_controller/DiffDriveController"
+        joint_names:
+          - "left_wheel_joint"
+          - "right_wheel_joint"
+        pid_gains:
+          roda_esq_joint:
+            p: 0.015
+            i: 1
+            d: 0
+            antiwindup: true
+            i_clamp_max: 0.1
+            i_clamp_min: -0.1
+          roda_dir_joint:
+            p: 0.015
+            i: 1
+            d: 0
+            antiwindup: true
+            i_clamp_max: 0.1
+            i_clamp_min: -0.1
