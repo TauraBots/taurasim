@@ -4,7 +4,7 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Comm
 from launch_ros.parameter_descriptions import ParameterValue
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.conditions import IfCondition
+from launch.conditions import IfCondition, UnlessCondition
 
 def generate_launch_description():
     pkg_share = get_package_share_directory('taurasim')
@@ -22,7 +22,9 @@ def generate_launch_description():
     declare_yaw = DeclareLaunchArgument('yaw', default_value='0')
     declare_model = DeclareLaunchArgument('model', default_value=PathJoinSubstitution([pkg_share, 'urdf', 'generic_vss_robot.xacro']))
     declare_namespace = DeclareLaunchArgument('namespace', default_value='yellow_team/robot_0')
-    
+    declare_twist_interface = DeclareLaunchArgument('twist_interface', default_value='true')
+    declare_controller_config_file = DeclareLaunchArgument('controller_config_file', default_value='')
+
     # Comando para gerar o `robot_description` como string a partir do XACRO
     robot_description_content = Command([
         'xacro',
@@ -64,7 +66,6 @@ def generate_launch_description():
     controller_manager = Node(
         package='controller_manager',
         executable='ros2_control_node',
-        name='controller_manager',
         output='screen',
         parameters=[
             {LaunchConfiguration('ros_control_config')},
@@ -72,8 +73,32 @@ def generate_launch_description():
         ],
         arguments=['--log-level', 'debug']
     )
+    load_joint_broad_config = Node(
+        package='controller_manager',
+        executable='spawner.py',
+        arguments=['joint_state_broadcaster'],
+        output='screen'
+    )
+    load_diff_controller = Node(
+        package='controller_manager',
+        executable='spawner.py',
+        arguments=['diff_controller', '--param-file', PathJoinSubstitution([pkg_share, 'config', 'motor_diff_drive.yml'])],
+        output='screen'
+    )
+
+    load_direct_drive_config = Node(
+        package='controller_manager',
+        executable='spawner.py',
+        arguments=[
+            'left_controller', 'right_controller', "--param-file", LaunchConfiguration('ros_control_config')
+        ],
+        condition=UnlessCondition(LaunchConfiguration('twist_interface')),
+        output='screen'
+    )
 
     return LaunchDescription([
+        declare_twist_interface,
+        declare_controller_config_file,
         declare_ros_control_config,
         declare_robot_number,
         declare_is_yellow,
@@ -87,6 +112,7 @@ def generate_launch_description():
         declare_model,
         declare_namespace,
         robot_state_publisher, 
-        spawn_robot,     
-        controller_manager      
+        spawn_robot,
+        controller_manager,
+        load_diff_controller
     ])

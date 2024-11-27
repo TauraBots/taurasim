@@ -15,3 +15,8 @@ controller_manager:
         antiwindup: true
         i_clamp_max: 0.1
         i_clamp_min: -0.1
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    diff_controller:
+      type: diff_drive_controller/DiffDriveController

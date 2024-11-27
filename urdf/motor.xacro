@@ -20,8 +20,10 @@
     
     <!-- Definindo a interface de controle -->
     <ros2_control name="motor_${side}_controller" type="velocity_controllers/JointVelocityController">
+      <hardware>
+        <plugin>hardware_interface/VelocityJointInterface</plugin>
+      </hardware>
       <joint name="roda_${side}_joint">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
     </ros2_control>
   </xacro:macro>
