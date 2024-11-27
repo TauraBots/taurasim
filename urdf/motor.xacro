@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Here we have the definition of a simple continuous motor
-  with a mechanical reduction
-  Ref: https://www.pololu.com/product/3064-->
+<!-- Definição de um motor contínuo simples com redução mecânica -->
+<!-- Ref: https://www.pololu.com/product/3064 -->
 
-<!-- Ref: Item 7.
-  https://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo -->
+<!-- Ref: Item 7. https://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo -->
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <!-- Macro para o motor com taxa de redução -->
   <xacro:macro name="motor" params="side gear_rate">
     <transmission name="trans_${side}_trans">
 
@@ -17,12 +16,13 @@
       <actuator name="motor_${side}_actuator">
         <mechanicalReduction>${gear_rate}</mechanicalReduction>
       </actuator>
-
+    </transmission>
+    
+    <!-- Definindo a interface de controle -->
+    <ros2_control name="motor_${side}_controller" type="velocity_controllers/JointVelocityController">
       <joint name="roda_${side}_joint">
         <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
-
-    </transmission>
+    </ros2_control>
   </xacro:macro>
-
 </robot>

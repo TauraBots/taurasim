@@ -1,4 +1,4 @@
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, TimerAction
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command
 from launch_ros.parameter_descriptions import ParameterValue
@@ -10,6 +10,7 @@ def generate_launch_description():
     pkg_share = get_package_share_directory('taurasim')
 
     # Declaração de argumentos
+    declare_ros_control_config = DeclareLaunchArgument('ros_control_config', default_value=PathJoinSubstitution([pkg_share, 'config', 'ros_control_config.yml']))
     declare_robot_number = DeclareLaunchArgument('robot_number', default_value='0')
     declare_is_yellow = DeclareLaunchArgument('is_yellow', default_value='true')
     declare_robot_name = DeclareLaunchArgument('robot_name', default_value='yellow_team/robot_0')
@@ -33,12 +34,13 @@ def generate_launch_description():
         'is_yellow:=', LaunchConfiguration('is_yellow')
     ])
 
+
     # Nodo que publica o `robot_description`
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher',
-        parameters=[{'robot_description': ParameterValue(robot_description_content, value_type=str)}]
+        parameters=[{'robot_description': robot_description_content}],
     )
 
     # Nodo para spawn do robô no Gazebo com o URDF gerado
@@ -59,8 +61,20 @@ def generate_launch_description():
         ],
         output='screen'
     )
+    controller_manager = Node(
+        package='controller_manager',
+        executable='ros2_control_node',
+        name='controller_manager',
+        output='screen',
+        parameters=[
+            {LaunchConfiguration('ros_control_config')},
+            {'robot_description': robot_description_content}
+        ],
+        arguments=['--log-level', 'debug']
+    )
 
     return LaunchDescription([
+        declare_ros_control_config,
         declare_robot_number,
         declare_is_yellow,
         declare_robot_name,
@@ -73,5 +87,6 @@ def generate_launch_description():
         declare_model,
         declare_namespace,
         robot_state_publisher, 
-        spawn_robot,            
+        spawn_robot,     
+        controller_manager      
     ])
