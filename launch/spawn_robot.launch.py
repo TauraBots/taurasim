@@ -112,7 +112,6 @@ def generate_launch_description():
         declare_yaw,
         declare_model,
         declare_namespace,
-        robot_state_publisher, 
-        spawn_robot,
-        controller_manager,
+        robot_state_publisher,
+        spawn_robot
     ])

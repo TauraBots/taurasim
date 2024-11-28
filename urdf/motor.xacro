@@ -19,11 +19,14 @@
     </transmission>
     
     <!-- Definindo a interface de controle -->
-    <ros2_control name="motor_${side}_controller" type="velocity_controllers/JointVelocityController">
+    <ros2_control name="motor_${side}_controller" type="system">
       <hardware>
-        <plugin>hardware_interface/VelocityJointInterface</plugin>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
       </hardware>
       <joint name="roda_${side}_joint">
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
       </joint>
     </ros2_control>
   </xacro:macro>
