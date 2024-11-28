@@ -1,45 +1,45 @@
+import os
 from setuptools import setup, find_packages
-from pathlib import Path
+from glob import glob
 
-package_name = 'taurasim'
-
-def get_files(directory, pattern="**/*"):
-    """
-    Retorna uma lista de tuplas com os arquivos de um diretório usando pathlib.
-
-    Args:
-        directory (str): Caminho base do diretório.
-        pattern (str): Padrão de correspondência para os arquivos.
-
-    Returns:
-        list: Lista de tuplas no formato esperado por data_files.
-    """
-    base_path = Path(directory)
-    files = [str(p) for p in base_path.glob(pattern) if p.is_file()]
-    return files
+PACKAGE_NAME = 'taurasim'
 
 setup(
-    name=package_name,
-    version='0.0.1',
-    packages=find_packages(),  # Usa find_packages para descobrir pacotes automaticamente
+    name=PACKAGE_NAME,
+    version='0.1.0',
+    packages=find_packages(),
     data_files=[
-        ('share/' + package_name + '/config', get_files('config')),
-        ('share/' + package_name + '/urdf', get_files('urdf')),
-        ('share/' + package_name + '/meshes', get_files('meshes')),
-        ('share/' + package_name + '/media', get_files('media')),
-        ('share/' + package_name + '/sounds', get_files('sounds')),
-        ('share/' + package_name + '/models', get_files('models')),
-        ('share/' + package_name + '/worlds', get_files('worlds')),
-        ('share/' + package_name + '/launch', get_files('launch')),
-        ('share/' + package_name + '/scripts', get_files('scripts'))
+        #('share/ament_index/resource_index/packages', ['resource/' + PACKAGE_NAME]),
+        ('share/' + PACKAGE_NAME, ['package.xml']),
+        ('share/' + PACKAGE_NAME + '/launch/', glob('launch/*.launch.py')),
+        ('share/' + PACKAGE_NAME + '/urdf/',  glob('urdf/*.gazebo') + glob('urdf/*.urdf') + glob('urdf/*.xacro') + glob('urdf/*.color')),
+        ('share/' + PACKAGE_NAME + '/worlds/', glob('worlds/*.world')),
+        ('share/' + PACKAGE_NAME + '/meshes/', glob('meshes/*.stl')),
+        ('share/' + PACKAGE_NAME + '/config/', glob('config/*.yml')),
+        ('share/' + PACKAGE_NAME + '/media/materials/scripts', glob('media/materials/scripts/*.material')),
+        ('share/' + PACKAGE_NAME + '/media/materials/textures', glob('media/materials/textures/*.png')),
+        ('share/' + PACKAGE_NAME + '/models/vss_ball', glob('models/vss_ball/*.config') + glob('models/vss_ball/*.sdf')),
+        ('share/' + PACKAGE_NAME + '/models/vss_field', glob('models/vss_field/*.config') + glob('models/vss_field/*.sdf')),
+        ('share/' + PACKAGE_NAME + '/models/vss_field/materials/scripts', glob('models/vss_field/materials/scripts/*.material')),
+        ('share/' + PACKAGE_NAME + '/models/vss_field/materials/textures', glob('models/vss_field/materials/scripts/*.png')),        
+        ('share/' + PACKAGE_NAME + '/models/vss_field/meshes', glob('models/vss_field/meshes/*.stl')),
+
+        ('share/' + PACKAGE_NAME + '/models/vss_field_5', glob('models/vss_field_5/*.config') + glob('models/vss_field_5/*.sdf')),
+        ('share/' + PACKAGE_NAME + '/models/vss_field_5/meshes', glob('models/vss_field_5/meshes/*.stl')),
+        
+        ('share/' + PACKAGE_NAME + '/models/vss_camera', glob('models/vss_camera/*.config') + glob('models/vss_camera/*.sdf')),
+        ('share/' + PACKAGE_NAME + '/taurasim/scripts', glob('taurasim/scripts/*.py')),
     ],
     install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='Seu Nome',
+    maintainer_email='seu_email@example.com',
+    description='Descrição do pacote',
+    license='Licença',
+    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'vision_proxy = taurasim.scripts.vision_proxy:main',
-            'keyboard_node = taurasim.scripts.keyboard_node:main',
-            'keyboard_node2 = taurasim.scripts.keyboard_node2:main'
+            'vision_proxy = taurasim.scripts.vision_proxy:main'
         ],
     },
-    zip_safe=True,
 )

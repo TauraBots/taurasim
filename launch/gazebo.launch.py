@@ -32,6 +32,10 @@ def generate_launch_description():
             name="GAZEBO_MODEL_PATH",
             value=[EnvironmentVariable(name="GAZEBO_MODEL_PATH"), ':', gazebo_model_path]
         ),
+        LogInfo(
+    condition=None,
+    msg=EnvironmentVariable('GAZEBO_MODEL_PATH'),
+),
         DeclareLaunchArgument(
             name='world', 
             default_value=world_path
