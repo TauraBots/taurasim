@@ -42,17 +42,18 @@ def generate_launch_description():
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher',
+        namespace=LaunchConfiguration('namespace'),
         parameters=[{'robot_description': robot_description_content}],
     )
-
     # Nodo para spawn do robô no Gazebo com o URDF gerado
     spawn_robot = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
         name='urdf_spawner',
+        namespace=LaunchConfiguration('namespace'),
         arguments=[
             '-entity', 'robot_0',
-            '-topic', '/robot_description',
+            '-topic', 'robot_description',
             '-x', LaunchConfiguration('x'),
             '-y', LaunchConfiguration('y'),
             '-z', LaunchConfiguration('z'),
@@ -114,5 +115,4 @@ def generate_launch_description():
         robot_state_publisher, 
         spawn_robot,
         controller_manager,
-        load_diff_controller
     ])

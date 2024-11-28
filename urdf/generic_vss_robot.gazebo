@@ -37,13 +37,16 @@
 
   <!-- Load gazebo plugin to control the robot -->
   <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros2_control.so">
-      <xacro:if value="${is_yellow}">
-        <robotNamespace>/yellow_team/robot_$(arg robot_number)</robotNamespace>
-      </xacro:if>
-      <xacro:unless value="${is_yellow}">
-        <robotNamespace>/blue_team/robot_$(arg robot_number)</robotNamespace>
-      </xacro:unless>
+    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <parameters>$(find taurasim)/config/ros_control_config.yml</parameters>
+      <ros>
+        <xacro:if value="${is_yellow}">
+          <namespace>/yellow_team/robot_$(arg robot_number)</namespace>
+        </xacro:if>
+        <xacro:unless value="${is_yellow}">
+          <namespace>/blue_team/robot_$(arg robot_number)</namespace>
+        </xacro:unless>
+      </ros>
     </plugin>
   </gazebo>
 </robot>
