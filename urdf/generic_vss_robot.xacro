@@ -8,11 +8,16 @@
   <xacro:property name="robot_number" value="$(arg robot_number)" />
   <xacro:property name="is_yellow" value="$(arg is_yellow)" />
 
-  <!-- Import all Gazebo-customization elements, except colors -->
+  <!--Constructive properties-->
+  <xacro:property name="wheel_radius" value="25e-3"/>
+  <xacro:property name="left_wheel_joint_xyz" value="0 0.0355 0.023"/>
+  <xacro:property name="right_wheel_joint_xyz" value="0 -0.0355 0.023"/>
+
+  <!-- Include all Gazebo elements -->
   <xacro:include filename="$(find taurasim)/urdf/generic_vss_robot.gazebo" />
   <xacro:include filename="$(find taurasim)/urdf/generic_vss_robot.color" />
 
-  <!-- Code exported from SolidWorks -->
+  <!-- urdf exported from SolidWorks -->
   <xacro:include filename="$(find taurasim)/urdf/generic_vss_robot.urdf" />
 
   <!-- Definition of motor -->

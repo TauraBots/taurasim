@@ -74,6 +74,8 @@ def generate_launch_description():
             {'robot_description': robot_description_content}
         ]
     )
+
+    # IMPLEMENTAR
     load_joint_broad_config = Node(
         package='controller_manager',
         executable='spawner.py',

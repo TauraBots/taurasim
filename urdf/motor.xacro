@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Definição de um motor contínuo simples com redução mecânica -->
-<!-- Ref: https://www.pololu.com/product/3064 -->
-
-<!-- Ref: Item 7. https://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo -->
+<!--IMPLEMENTAR-->
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
@@ -21,7 +18,7 @@
     <!-- Definindo a interface de controle -->
     <ros2_control name="motor_${side}_controller" type="system">
       <hardware>
-        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        <plugin></plugin>
       </hardware>
       <joint name="roda_${side}_joint">
         <command_interface name="velocity"/>

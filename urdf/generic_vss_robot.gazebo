@@ -1,9 +1,5 @@
 <?xml version="1.0"?>
 
-<!-- Ref: http://gazebosim.org/tutorials/?tut=ros_urdf
-    http://answers.gazebosim.org/question/13506/preventing-bouncing-of-object/
-    -->
-
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- Corpo -->
@@ -49,15 +45,15 @@
       </ros>
 
       <!-- Update rate in Hz -->
-      <update_rate>50</update_rate>
+      <update_rate>60</update_rate>
 
       <!-- wheels -->
       <left_joint>roda_esq_joint</left_joint>
       <right_joint>roda_dir_joint</right_joint>
 
       <!-- kinematics -->
-      <wheel_separation>1.25</wheel_separation>
-      <wheel_diameter>0.6</wheel_diameter>
+      <wheel_separation>${float(left_wheel_joint_xyz.split(' ')[1])*2}</wheel_separation>
+      <wheel_diameter>${wheel_radius*2}</wheel_diameter>
 
       <!-- limits -->
       <max_wheel_torque>20</max_wheel_torque>

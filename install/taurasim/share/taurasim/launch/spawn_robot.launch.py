@@ -67,12 +67,12 @@ def generate_launch_description():
     controller_manager = Node(
         package='controller_manager',
         executable='ros2_control_node',
+        namespace=LaunchConfiguration('namespace'),
         output='screen',
         parameters=[
             {LaunchConfiguration('ros_control_config')},
             {'robot_description': robot_description_content}
-        ],
-        arguments=['--log-level', 'debug']
+        ]
     )
     load_joint_broad_config = Node(
         package='controller_manager',
@@ -83,7 +83,7 @@ def generate_launch_description():
     load_diff_controller = Node(
         package='controller_manager',
         executable='spawner.py',
-        arguments=['diff_controller', '--param-file', PathJoinSubstitution([pkg_share, 'config', 'motor_diff_drive.yml'])],
+        arguments=['diff_controller', '--param-file', PathJoinSubstitution([pkg_share, 'config', 'ros_control_config.yml'])],
         output='screen'
     )
 
@@ -112,9 +112,6 @@ def generate_launch_description():
         declare_yaw,
         declare_model,
         declare_namespace,
-        TimerAction(
-            period=10.0,
-            actions=robot_state_publisher
-        ), 
+        robot_state_publisher,
         spawn_robot,
     ])
