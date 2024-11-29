@@ -8,6 +8,11 @@
 
 <sdf version="1.5">
   <world name="default">
+
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+      <namespace>gazebo</namespace>
+    </plugin>
+
     <!-- A global light source -->
     <include>
       <uri>model://sun</uri>

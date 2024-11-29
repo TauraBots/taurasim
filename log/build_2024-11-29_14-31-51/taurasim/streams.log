@@ -1,0 +1,30 @@
+[1.380s] Invoking command in '/home/lucas/taurasim_ws/src/taurasim': PYTHONPATH=/home/lucas/taurasim_ws/src/taurasim/build/taurasim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lucas/taurasim_ws/src/taurasim/install/taurasim/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/taurasim build --build-base /home/lucas/taurasim_ws/src/taurasim/build/taurasim/build install --record /home/lucas/taurasim_ws/src/taurasim/build/taurasim/install.log --install-scripts $base/lib/taurasim --single-version-externally-managed install_data
+[1.821s] running egg_info
+[1.822s] writing build/taurasim/taurasim.egg-info/PKG-INFO
+[1.822s] writing dependency_links to build/taurasim/taurasim.egg-info/dependency_links.txt
+[1.823s] writing entry points to build/taurasim/taurasim.egg-info/entry_points.txt
+[1.823s] writing requirements to build/taurasim/taurasim.egg-info/requires.txt
+[1.823s] writing top-level names to build/taurasim/taurasim.egg-info/top_level.txt
+[1.882s] reading manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+[1.885s] writing manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+[1.885s] running build
+[1.885s] running build_py
+[1.886s] running install
+[1.887s] running install_lib
+[1.890s] running install_data
+[1.890s] copying launch/gazebo.launch.py -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+[1.891s] copying launch/spawn_robot.launch.py -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+[1.891s] copying launch/simulation_robot.launch.py -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+[1.891s] copying urdf/generic_vss_robot.gazebo -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf/
+[1.891s] copying urdf/generic_vss_robot.urdf -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf/
+[1.892s] copying urdf/motor.xacro -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf/
+[1.892s] copying urdf/generic_vss_robot.xacro -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf/
+[1.892s] copying urdf/generic_vss_robot.color -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf/
+[1.892s] copying config/ros_control_config.yml -> /home/lucas/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/config/
+[1.894s] running install_egg_info
+[1.898s] removing '/home/lucas/taurasim_ws/src/taurasim/install/taurasim/lib/python3.8/site-packages/taurasim-0.1.0-py3.8.egg-info' (and everything under it)
+[1.898s] Copying build/taurasim/taurasim.egg-info to /home/lucas/taurasim_ws/src/taurasim/install/taurasim/lib/python3.8/site-packages/taurasim-0.1.0-py3.8.egg-info
+[1.916s] running install_scripts
+[1.951s] Installing vision_proxy script to /home/lucas/taurasim_ws/src/taurasim/install/taurasim/lib/taurasim
+[1.952s] writing list of installed files to '/home/lucas/taurasim_ws/src/taurasim/build/taurasim/install.log'
+[2.007s] Invoked command in '/home/lucas/taurasim_ws/src/taurasim' returned '0': PYTHONPATH=/home/lucas/taurasim_ws/src/taurasim/build/taurasim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lucas/taurasim_ws/src/taurasim/install/taurasim/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/taurasim build --build-base /home/lucas/taurasim_ws/src/taurasim/build/taurasim/build install --record /home/lucas/taurasim_ws/src/taurasim/build/taurasim/install.log --install-scripts $base/lib/taurasim --single-version-externally-managed install_data

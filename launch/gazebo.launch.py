@@ -165,7 +165,6 @@ def generate_launch_description():
             output='screen',
             parameters=[
                 {
-                    'disable_pub_plugins': ['image_transport/compressedDepth'],
                     '/vision/std_dev': 0.1
                 }
             ]

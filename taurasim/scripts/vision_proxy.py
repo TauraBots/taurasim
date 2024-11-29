@@ -22,10 +22,8 @@ class VisionProxyNode(Node):
     def __init__(self):
         super().__init__('vision_proxy_node')
         qos_profile = QoSProfile(depth=10)
-        
-        # Declare parameters
-        self.declare_parameter('/vision/std_dev', 0.1)
-
+    
+        self.declare_parameter('/vision/std_dev', 0.1)  # Valor padrão
         # Create publishers using a private attribute to avoid issues with setting attributes directly
         self._publishers = {
             model: self.create_publisher(ModelState, f'/vision/{self.clean_model_name(model)}', qos_profile)
@@ -61,7 +59,10 @@ class VisionProxyNode(Node):
 
     def callback(self, data: ModelStates) -> None:
         # Process the model states and apply noise
+        
         self.get_logger().info(f'I heard {data.name}')
+        # O restante do código
+
         for model, pose in zip(data.name, data.pose):
             if model in self.MODELS_NAMES:
                 try:

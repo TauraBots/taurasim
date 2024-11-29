@@ -52,7 +52,7 @@ def generate_launch_description():
         name='urdf_spawner',
         namespace=LaunchConfiguration('namespace'),
         arguments=[
-            '-entity', 'robot_0',
+            '-entity', LaunchConfiguration('robot_name'),
             '-topic', 'robot_description',
             '-x', LaunchConfiguration('x'),
             '-y', LaunchConfiguration('y'),

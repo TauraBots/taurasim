@@ -9,7 +9,7 @@ def generate_launch_description():
     # Get Paths 
     pkg_share = get_package_share_directory('taurasim')
 
-    world_path = PathJoinSubstitution([pkg_share, 'worlds', 'vss_field.world'])
+    world_path = PathJoinSubstitution([pkg_share, 'worlds', 'vss_field_camera.world'])
     gazebo_launch_path = PathJoinSubstitution([pkg_share, 'launch', 'gazebo.launch.py'])
     spawn_robot_launch_path = PathJoinSubstitution([pkg_share, 'launch', 'spawn_robot.launch.py'])
 

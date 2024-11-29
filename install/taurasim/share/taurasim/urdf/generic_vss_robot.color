@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- Set team configuration -->
+  <!-- Set yellow team colors -->
   <xacro:if value="${is_yellow}">
 
     <gazebo reference="base_link">
@@ -24,14 +24,12 @@
       <material>TeamYellow/Sides</material>
     </gazebo>
 
-    <!-- Set robots colors -->
     <gazebo reference="chapeu_link">
-      <!-- /Set robots colors -->
       <material>TeamYellow/Robot${robot_number}/Hat</material>
     </gazebo>
-  </xacro:if>  <!-- /Set team configuration -->
+  </xacro:if>  
 
-  <!-- Set team configuration -->
+  <!-- Set blue team colors -->
   <xacro:unless value="${is_yellow}">
 
     <gazebo reference="base_link">
