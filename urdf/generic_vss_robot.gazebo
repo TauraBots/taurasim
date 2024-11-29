@@ -37,8 +37,8 @@
 
   <!-- Load gazebo plugin to control the robot -->
   <gazebo>
-    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-      <parameters>$(find taurasim)/config/ros_control_config.yml</parameters>
+    <plugin name="diff_controller" filename="libgazebo_ros_diff_drive.so">
+      <parameters>$(find taurasim)/config/motor_diff_drive.yml</parameters>
       <ros>
         <xacro:if value="${is_yellow}">
           <namespace>/yellow_team/robot_$(arg robot_number)</namespace>
@@ -47,6 +47,31 @@
           <namespace>/blue_team/robot_$(arg robot_number)</namespace>
         </xacro:unless>
       </ros>
+
+      <!-- Update rate in Hz -->
+      <update_rate>50</update_rate>
+
+      <!-- wheels -->
+      <left_joint>roda_esq_joint</left_joint>
+      <right_joint>roda_dir_joint</right_joint>
+
+      <!-- kinematics -->
+      <wheel_separation>1.25</wheel_separation>
+      <wheel_diameter>0.6</wheel_diameter>
+
+      <!-- limits -->
+      <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+
+      <!-- output -->
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
+
+      <odometry_topic>odom</odometry_topic>
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
     </plugin>
   </gazebo>
 </robot>

@@ -1,5 +1,6 @@
 /diff_controller:
   ros__parameters:
+    update_rate: 100
     type: diff_drive_controller/DiffDriveController
 
     left_wheel_names: ["roda_esq_joint"]
