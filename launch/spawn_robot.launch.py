@@ -64,40 +64,6 @@ def generate_launch_description():
         ],
         output='screen'
     )
-    controller_manager = Node(
-        package='controller_manager',
-        executable='ros2_control_node',
-        namespace=LaunchConfiguration('namespace'),
-        output='screen',
-        parameters=[
-            {LaunchConfiguration('ros_control_config')},
-            {'robot_description': robot_description_content}
-        ]
-    )
-
-    # IMPLEMENTAR
-    load_joint_broad_config = Node(
-        package='controller_manager',
-        executable='spawner.py',
-        arguments=['joint_state_broadcaster'],
-        output='screen'
-    )
-    load_diff_controller = Node(
-        package='controller_manager',
-        executable='spawner.py',
-        arguments=['diff_controller', '--param-file', PathJoinSubstitution([pkg_share, 'config', 'ros_control_config.yml'])],
-        output='screen'
-    )
-
-    load_direct_drive_config = Node(
-        package='controller_manager',
-        executable='spawner.py',
-        arguments=[
-            'left_controller', 'right_controller', "--param-file", LaunchConfiguration('ros_control_config')
-        ],
-        condition=UnlessCondition(LaunchConfiguration('twist_interface')),
-        output='screen'
-    )
 
     return LaunchDescription([
         declare_twist_interface,

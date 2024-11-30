@@ -15,7 +15,6 @@ setup(
         ('share/' + PACKAGE_NAME + '/urdf/',  glob('urdf/*.gazebo') + glob('urdf/*.urdf') + glob('urdf/*.xacro') + glob('urdf/*.color')),
         ('share/' + PACKAGE_NAME + '/worlds/', glob('worlds/*.world')),
         ('share/' + PACKAGE_NAME + '/meshes/', glob('meshes/*.stl')),
-        ('share/' + PACKAGE_NAME + '/config/', glob('config/*.yml')),
         ('share/' + PACKAGE_NAME + '/media/materials/scripts', glob('media/materials/scripts/*.material')),
         ('share/' + PACKAGE_NAME + '/media/materials/textures', glob('media/materials/textures/*.png')),
         ('share/' + PACKAGE_NAME + '/models/vss_ball', glob('models/vss_ball/*.config') + glob('models/vss_ball/*.sdf')),
@@ -32,10 +31,11 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Seu Nome',
-    maintainer_email='seu_email@example.com',
-    description='Descrição do pacote',
-    license='Licença',
+    maintainer='Lucas Marchesan',
+    maintainer_email='lucas1marchesan@gmail.com',
+    description='The TauraSim package provides a simulation environment for VSSS robots. \
+  It includes configurations for robot models, controllers, and simulation worlds.',
+    license='MIT',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

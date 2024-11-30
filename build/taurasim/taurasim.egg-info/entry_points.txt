@@ -1,3 +1,0 @@
-[console_scripts]
-vision_proxy = taurasim.scripts.vision_proxy:main
-

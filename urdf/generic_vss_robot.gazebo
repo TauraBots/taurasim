@@ -34,7 +34,6 @@
   <!-- Load gazebo plugin to control the robot -->
   <gazebo>
     <plugin name="diff_controller" filename="libgazebo_ros_diff_drive.so">
-      <parameters>$(find taurasim)/config/motor_diff_drive.yml</parameters>
       <ros>
         <xacro:if value="${is_yellow}">
           <namespace>/yellow_team/robot_$(arg robot_number)</namespace>
@@ -52,6 +51,7 @@
       <right_joint>roda_dir_joint</right_joint>
 
       <!-- kinematics -->
+      <!-- Wheel_separation = wheel_joint_y *2-->
       <wheel_separation>${float(left_wheel_joint_xyz.split(' ')[1])*2}</wheel_separation>
       <wheel_diameter>${wheel_radius*2}</wheel_diameter>
 

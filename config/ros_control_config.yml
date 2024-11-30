@@ -1,6 +1,0 @@
-# IMPLEMENTAR
-
-controller_manager:
-  ros__parameters:
-    diff_controller:
-      type: diff_drive_controller/DiffDriveController
