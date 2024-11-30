@@ -24,6 +24,7 @@
   <depend>gazebo_ros2_control</depend> <!-- Controladores de Gazebo para simulação -->
   <depend>controller_manager</depend> <!-- Gerenciador de controladores no ROS 2 -->
   
+<depend>rqt_robot_steering</depend>
   <!-- Dependências para teste -->
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

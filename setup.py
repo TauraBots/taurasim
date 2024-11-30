@@ -39,7 +39,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'vision_proxy = taurasim.scripts.vision_proxy:main'
+            'vision_proxy = taurasim.scripts.vision_proxy:main',
+            'keyboard_node = taurasim.scripts.keyboard_node:main',
         ],
     },
 )

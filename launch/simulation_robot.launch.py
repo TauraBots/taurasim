@@ -2,6 +2,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
@@ -54,6 +55,15 @@ def generate_launch_description():
             default_value='false',
             description='Enable keyboard control'
     )
+
+    rqt_robot_steering_node = Node(
+        package='rqt_robot_steering',
+        executable='rqt_robot_steering',
+        name='rqt_robot_steering',
+        parameters=[{'default_topic': '/yellow_team/robot_0/diff_drive_controller/cmd_vel'}],
+        output='screen',
+        arguments=['--force-discover']
+    )
     spawn_robot_launch = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(spawn_robot_launch_path),
             launch_arguments={
@@ -65,13 +75,14 @@ def generate_launch_description():
                 'ros_control_config_file': LaunchConfiguration('ros_control_config_file')
             }.items()
     )
-
+    
     gazebo_launch = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(gazebo_launch_path),
             launch_arguments={
                 'world': world_path
             }.items()
     )
+
     return LaunchDescription([
 
         declare_world,
@@ -83,5 +94,6 @@ def generate_launch_description():
         declare_ros_control_Config,
         declare_keyboard,
         gazebo_launch,
-        spawn_robot_launch
+        spawn_robot_launch,
+        rqt_robot_steering_node
     ])
