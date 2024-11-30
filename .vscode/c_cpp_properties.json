@@ -8,7 +8,6 @@
       "includePath": [
         "/home/lucas/ros2_ws/install/my_robot_interfaces/include/**",
         "/opt/ros/foxy/include/**",
-        "/home/lucas/taurasim_ws/src/taurasim/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",
