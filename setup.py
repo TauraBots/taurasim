@@ -15,6 +15,7 @@ setup(
         ('share/' + PACKAGE_NAME + '/urdf/',  glob('urdf/*.gazebo') + glob('urdf/*.urdf') + glob('urdf/*.xacro') + glob('urdf/*.color')),
         ('share/' + PACKAGE_NAME + '/worlds/', glob('worlds/*.world')),
         ('share/' + PACKAGE_NAME + '/meshes/', glob('meshes/*.stl')),
+        ('share/' + PACKAGE_NAME + '/sounds/', glob('sounds/*.wav')),
         ('share/' + PACKAGE_NAME + '/media/materials/scripts', glob('media/materials/scripts/*.material')),
         ('share/' + PACKAGE_NAME + '/media/materials/textures', glob('media/materials/textures/*.png')),
         ('share/' + PACKAGE_NAME + '/models/vss_ball', glob('models/vss_ball/*.config') + glob('models/vss_ball/*.sdf')),
@@ -39,7 +40,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'vision_proxy = taurasim.scripts.vision_proxy:main'
+            'vision_proxy = taurasim.scripts.vision_proxy:main',
+            'keyboard_node = taurasim.scripts.keyboard_node:main',
+            'spawn_robots = taurasim.scripts.spawn_robots:main',
         ],
     },
 )

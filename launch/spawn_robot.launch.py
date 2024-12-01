@@ -1,10 +1,8 @@
-from launch.actions import DeclareLaunchArgument, TimerAction
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command
-from launch_ros.parameter_descriptions import ParameterValue
 from ament_index_python.packages import get_package_share_directory
-from launch import LaunchDescription
-from launch.conditions import IfCondition, UnlessCondition
 
 def generate_launch_description():
     pkg_share = get_package_share_directory('taurasim')
@@ -36,7 +34,6 @@ def generate_launch_description():
         'is_yellow:=', LaunchConfiguration('is_yellow')
     ])
 
-
     # Nodo que publica o `robot_description`
     robot_state_publisher = Node(
         package='robot_state_publisher',
@@ -45,6 +42,7 @@ def generate_launch_description():
         namespace=LaunchConfiguration('namespace'),
         parameters=[{'robot_description': robot_description_content}],
     )
+
     # Nodo para spawn do robô no Gazebo com o URDF gerado
     spawn_robot = Node(
         package='gazebo_ros',

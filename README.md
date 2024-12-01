@@ -32,9 +32,3 @@ source ./install/setup.bash
 ros2 launch taurasim simulation_robot.launch.py
 ```
 
-## Control test
-```bash
-ros2 topic pub /yellow_team/robot_0/cmd_vel geometry_msgs/Twist '{linear: {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}'
-```
-
-

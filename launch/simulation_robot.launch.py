@@ -1,8 +1,10 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, GroupAction
 from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
+from launch.conditions import IfCondition, UnlessCondition
 
 def generate_launch_description():
 
@@ -51,9 +53,36 @@ def generate_launch_description():
     )
     declare_keyboard = DeclareLaunchArgument(
             'keyboard',
-            default_value='false',
+            default_value='true',
             description='Enable keyboard control'
     )
+    keyboard_group = GroupAction(
+        condition=IfCondition(LaunchConfiguration('keyboard')),
+        actions=[
+            Node(
+                package='taurasim',
+                executable='keyboard_node',
+                name='keyboard_controller',
+                output='screen'
+            )
+        ]
+    )
+
+
+    no_keyboard_group = GroupAction(
+        condition=UnlessCondition(LaunchConfiguration('keyboard')),
+        actions=[
+            Node(
+                package='rqt_robot_steering',
+                executable='rqt_robot_steering',
+                name='rqt_robot_steering',
+                parameters=[{'default_topic': '/yellow_team/robot_0/diff_drive_controller/cmd_vel'}],
+                output='screen',
+                arguments=['--force-discover']
+            )
+        ]
+    )
+
     spawn_robot_launch = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(spawn_robot_launch_path),
             launch_arguments={
@@ -65,13 +94,14 @@ def generate_launch_description():
                 'ros_control_config_file': LaunchConfiguration('ros_control_config_file')
             }.items()
     )
-
+    
     gazebo_launch = IncludeLaunchDescription(
             PythonLaunchDescriptionSource(gazebo_launch_path),
             launch_arguments={
                 'world': world_path
             }.items()
     )
+
     return LaunchDescription([
 
         declare_world,
@@ -83,5 +113,7 @@ def generate_launch_description():
         declare_ros_control_Config,
         declare_keyboard,
         gazebo_launch,
-        spawn_robot_launch
+        spawn_robot_launch,
+        keyboard_group,
+        no_keyboard_group
     ])
