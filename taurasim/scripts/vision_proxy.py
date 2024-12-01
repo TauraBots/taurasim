@@ -60,7 +60,6 @@ class VisionProxyNode(Node):
     def callback(self, data: ModelStates) -> None:
         # Process the model states and apply noise
         
-        self.get_logger().info(f'I heard {data.name}')
         # O restante do código
 
         for model, pose in zip(data.name, data.pose):
