@@ -21,7 +21,6 @@ def generate_launch_description():
     declare_model = DeclareLaunchArgument('model', default_value=PathJoinSubstitution([pkg_share, 'urdf', 'generic_vss_robot.xacro']))
     declare_namespace = DeclareLaunchArgument('namespace', default_value='yellow_team/robot_0')
     declare_twist_interface = DeclareLaunchArgument('twist_interface', default_value='true')
-    declare_controller_config_file = DeclareLaunchArgument('controller_config_file', default_value='')
 
     # Comando para gerar o `robot_description` como string a partir do XACRO
     robot_description_content = Command([
@@ -65,8 +64,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         declare_twist_interface,
-        declare_controller_config_file,
-        declare_ros_control_config,
         declare_robot_number,
         declare_is_yellow,
         declare_robot_name,

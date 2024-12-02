@@ -15,8 +15,6 @@ from geometry_msgs.msg import Twist
         to send velocity commands to a Gazebo simulation.
 """
 
-
-
 # Vamos acompanhar o estado dessas teclas
 KEYS = [pygame.K_w, pygame.K_a, pygame.K_s, pygame.K_d]
 
@@ -80,15 +78,12 @@ class KeyboardNode(Node):
 
         self.vel_pub = []
         self.current_robot = 0
-
         for i in range(ROBOTS):
             self.vel_pub.append(self.create_publisher(
                 Twist, getNamespace(i) + '/cmd_vel', 2))
 
-        self.timer = self.create_timer(1.0 / 60.0, self.timer_callback)
-
         pygame.init()
-
+        pygame.joystick.init()
         # Cria a janela
         self.win = pygame.display.set_mode((640, 480), pygame.RESIZABLE)
         pygame.display.set_caption("Keyboard Comunication Interface")
@@ -109,9 +104,9 @@ class KeyboardNode(Node):
             j = pygame.joystick.Joystick(x)
             j.init()
             txt = "Enabled joystick: " + j.get_name()
-            print(txt)
             img = self.font.render(txt, 1, (50, 200, 50), (0, 0, 0))
             self.console.append(img)
+            self.get_logger().info(txt)
 
         if not pygame.joystick.get_count():
             self.using_joystick = False
@@ -125,9 +120,11 @@ class KeyboardNode(Node):
 
         self.running = True
 
-    def timer_callback(self):
-        for e in pygame.event.get():
+        while(self.running):
+            self.callback()
 
+    def callback(self):
+        for e in pygame.event.get():
             # Movimento dos botões do teclado
             if e.type == pygame.KEYDOWN:
                 if e.key == pygame.K_ESCAPE:
@@ -140,30 +137,24 @@ class KeyboardNode(Node):
 
             # Movimento dos direcionais do joystick
             if e.type == pygame.JOYAXISMOTION:
-                if e.dict['axis'] in (X_AXIS, Y_AXIS):
-                    if e.dict['axis'] == X_AXIS:
+                if e.__dict__['axis'] in (X_AXIS, Y_AXIS):
+                    if e.__dict__['axis'] == X_AXIS:
                         if INVERT_X_AXIS:
                             self.axis[0] = -e.value
                         else:
                             self.axis[0] = e.value
 
-                    elif e.dict['axis'] == Y_AXIS:
+                    elif e.__dict__['axis'] == Y_AXIS:
                         if INVERT_Y_AXIS:
                             self.axis[1] = -e.value
                         else:
                             self.axis[1] = e.value
-
-            # Caso algum botão do joystick seja apertado
-            if e.type == pygame.JOYBUTTONDOWN \
-                or e.type == pygame.JOYBUTTONUP \
-                    or e.type == pygame.JOYHATMOTION:
-
-                txt = "%s: %s" % (pygame.event.event_name(e.type), e.dict)
-                print(txt)
+            if e.type == pygame.JOYBUTTONDOWN or e.type == pygame.JOYBUTTONUP or e.type == pygame.JOYHATMOTION:
+                txt = "%s: %s" % (pygame.event.event_name(e.type), e.__dict__)
+                self.get_logger().info(txt)
                 img = self.font.render(txt, 1, (50, 200, 50), (0, 0, 0))
                 self.console.append(img)
                 self.console = self.console[-13:]
-
             # L1 pressionado
             if (e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 4) or (e.type == pygame.KEYDOWN and e.key == pygame.K_e):
                 self.current_robot += 1
@@ -175,10 +166,11 @@ class KeyboardNode(Node):
                 self.current_robot %= ROBOTS
 
             elif e.type == pygame.VIDEORESIZE:
-                self.win = pygame.display.set_mode(e.size, pygame.RESIZABLE)
+                win = pygame.display.set_mode(e.size, pygame.RESIZABLE)
 
             elif e.type == pygame.QUIT:
-                self.running = False
+                running = False
+
 
         drawConsole(self.win, self.font, self.console)
         pygame.display.flip()
@@ -190,8 +182,8 @@ class KeyboardNode(Node):
             self.console = self.console[-13:]
 
             vel_cmd_twist = Twist()
-            vel_cmd_twist.linear.x = self.axis[1]*MAX_LIN_VEL
-            vel_cmd_twist.angular.z = self.axis[0]*MAX_ROT_VEL
+            vel_cmd_twist.linear.x = self.axis[1] * MAX_LIN_VEL
+            vel_cmd_twist.angular.z = self.axis[0] * MAX_ROT_VEL
 
             self.vel_pub[self.current_robot].publish(vel_cmd_twist)
 
