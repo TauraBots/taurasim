@@ -22,7 +22,7 @@ from rclpy.node import Node
 PACKAGE_NAME = 'taurasim'
 SPAWN_LAUNCHFILE = 'spawn_robot.launch.py'
 
-COLORS = ["blue", "yellow"]
+COLORS = ["yellow", "blue"]
 
 FORMATION_3X3 = {
     COLORS[0]: [(-0.2, 0), (-0.5, 0.3), (-0.5, -0.3)],

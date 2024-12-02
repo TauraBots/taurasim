@@ -41,16 +41,6 @@ def generate_launch_description():
             default_value='true',
             description='Enable twist interface for the robot'
     )
-    declare_controller_file = DeclareLaunchArgument(
-            'controller_config_file',
-            default_value='',
-            description='Controller configuration file'
-    )
-    declare_ros_control_Config = DeclareLaunchArgument(
-            'ros_control_config_file',
-            default_value=PathJoinSubstitution([pkg_share, 'config', 'ros_control_config.yml']),
-            description='ROS control configuration file'
-    )
     declare_keyboard = DeclareLaunchArgument(
             'keyboard',
             default_value='true',
@@ -90,8 +80,6 @@ def generate_launch_description():
                 'y': LaunchConfiguration('y'),
                 'yaw': LaunchConfiguration('yaw'),
                 'twist_interface': LaunchConfiguration('twist_interface'),
-                'controller_config_file': LaunchConfiguration('controller_config_file'),
-                'ros_control_config_file': LaunchConfiguration('ros_control_config_file')
             }.items()
     )
     
@@ -109,8 +97,6 @@ def generate_launch_description():
         declare_robot_y,
         declare_robot_yaw,
         declare_robot_twist,
-        declare_controller_file,
-        declare_ros_control_Config,
         declare_keyboard,
         gazebo_launch,
         spawn_robot_launch,
