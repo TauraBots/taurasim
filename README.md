@@ -4,12 +4,11 @@
 The TauraSim package provides a simulation environment for VSSS robots.
 It includes configurations for robot models, controllers, and simulation worlds.
 
-
 ## Requirements
-1. Gazebo-11
-    [https://classic.gazebosim.org/tutorials?tut=install_ubuntu](Tutorial Gazebo)
-2. Ros2
-    [https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html](Tutorial Ros2)
+1. Gazebo-11  
+   [Tutorial Gazebo](https://classic.gazebosim.org/tutorials?tut=install_ubuntu)
+2. ROS2  
+   [Tutorial ROS2](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
 ## Install Dependencies
 
