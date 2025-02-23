@@ -3,6 +3,7 @@ import sys
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
+import argparse
 
 #!/usr/bin/env python3
 # coding=utf-8
@@ -24,13 +25,6 @@ Y_AXIS = 4
 INVERT_X_AXIS = True
 INVERT_Y_AXIS = True
 
-ROBOTS = 3
-
-# Namespace dos tópicos que iremos publicar
-DEFAULT_NAMESPACE = "/yellow_team/robot_"
-
-DEFAULT_DEBUG = False
-
 # A vel máxima do robô é 2 m/s
 MAX_LIN_VEL = 1.0  # m/s
 
@@ -50,8 +44,8 @@ KEYBOARD_ANGULAR_MAX = 0.6
 SCALE = 126
 
 
-def getNamespace(number):
-    return DEFAULT_NAMESPACE + f'{number}'
+def getNamespace(namespace, number):
+    return namespace + f'{number}'
 
 
 def drawConsole(win, font, console):
@@ -73,14 +67,14 @@ def drawConsole(win, font, console):
 
 
 class KeyboardNode(Node):
-    def __init__(self, debug=DEFAULT_DEBUG):
+    def __init__(self, namespace, robots, debug=False):
         super().__init__('vss_human_controller')
 
         self.vel_pub = []
         self.current_robot = 0
-        for i in range(ROBOTS):
+        for i in range(robots):
             self.vel_pub.append(self.create_publisher(
-                Twist, getNamespace(i) + '/cmd_vel', 2))
+                Twist, getNamespace(namespace, i) + '/cmd_vel', 2))
 
         pygame.init()
         pygame.joystick.init()
@@ -158,19 +152,18 @@ class KeyboardNode(Node):
             # L1 pressionado
             if (e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 4) or (e.type == pygame.KEYDOWN and e.key == pygame.K_e):
                 self.current_robot += 1
-                self.current_robot %= ROBOTS
+                self.current_robot %= len(self.vel_pub)
 
             # R1 pressionado
             if (e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 5) or (e.type == pygame.KEYDOWN and e.key == pygame.K_q):
                 self.current_robot -= 1
-                self.current_robot %= ROBOTS
+                self.current_robot %= len(self.vel_pub)
 
             elif e.type == pygame.VIDEORESIZE:
-                win = pygame.display.set_mode(e.size, pygame.RESIZABLE)
+                self.win = pygame.display.set_mode(e.size, pygame.RESIZABLE)
 
             elif e.type == pygame.QUIT:
-                running = False
-
+                self.running = False
 
         drawConsole(self.win, self.font, self.console)
         pygame.display.flip()
@@ -219,8 +212,14 @@ class KeyboardNode(Node):
 
 
 def main(args=None):
-    rclpy.init(args=args)
-    node = KeyboardNode()
+    parser = argparse.ArgumentParser(description='Keyboard Node')
+    parser.add_argument('--namespace', type=str, default='/yellow_team/robot_', help='Namespace for the robots')
+    parser.add_argument('--robots', type=int, default=3, help='Number of robots')
+    parser.add_argument('--debug', action='store_true', help='Enable debug mode')
+    args, unknown = parser.parse_known_args()
+
+    rclpy.init(args=sys.argv)
+    node = KeyboardNode(namespace=args.namespace, robots=args.robots, debug=args.debug)
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()

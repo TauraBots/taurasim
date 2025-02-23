@@ -1,1 +1,1 @@
-controller_manager:effort_controllers:gazebo_ros:gazebo_ros_control:gazebo_ros_pkgs:image_view:joint_state_publisher:python3-pygame:rclpy:robot_state_publisher:ros2launch:rosbag:rviz:velocity_controllers
+controller_manager:effort_controllers:gazebo_ros:gazebo_ros2_control:gazebo_ros_pkgs:python3-pygame:rclpy:robot_state_publisher:ros2launch:rosbag2:rqt_robot_steering:rviz2:velocity_controllers:xacro

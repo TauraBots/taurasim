@@ -8,22 +8,23 @@
   <license>TODO: License declaration</license>
 
   <!-- Ferramenta de construção para pacotes Python -->
-  <buildtool_depend>ament_python</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
 
   <!-- Dependências do ROS -->
   <depend>ros2launch</depend>
   <depend>robot_state_publisher</depend>
   <depend>velocity_controllers</depend>
   <depend>effort_controllers</depend>
-  <depend>rviz</depend>
-  <depend>joint_state_publisher</depend>
+  <depend>rviz2</depend>
+  
   <depend>gazebo_ros</depend> <!-- Gazebo ROS Integration -->
   <depend>gazebo_ros_pkgs</depend> <!-- Pacote Gazebo ROS (essencial para integração com o Gazebo) -->
 
   <!-- Dependências de simulação -->
-  <depend>gazebo_ros_control</depend> <!-- Controladores de Gazebo para simulação -->
+  <depend>gazebo_ros2_control</depend> <!-- Controladores de Gazebo para simulação -->
   <depend>controller_manager</depend> <!-- Gerenciador de controladores no ROS 2 -->
   
+<depend>rqt_robot_steering</depend>
   <!-- Dependências para teste -->
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
@@ -32,9 +33,10 @@
   <build_depend>rclpy</build_depend>
   <build_export_depend>rclpy</build_export_depend>
   <exec_depend>rclpy</exec_depend>
-  <exec_depend>image_view</exec_depend>
-  <exec_depend>rosbag</exec_depend>
+  <exec_depend>rosbag2</exec_depend>
   <exec_depend>python3-pygame</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
 
   <export>
     <build_type>ament_python</build_type>

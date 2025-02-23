@@ -19,11 +19,4 @@
 
   <!-- urdf exported from SolidWorks -->
   <xacro:include filename="$(find taurasim)/urdf/generic_vss_robot.urdf" />
-
-  <!-- Definition of motor -->
-  <xacro:include filename="$(find taurasim)/urdf/motor.xacro"/>
-
-  <xacro:motor side="esq" gear_rate="1"/>
-  <xacro:motor side="dir" gear_rate="1"/>
-
 </robot>
