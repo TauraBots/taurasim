@@ -1,0 +1,26 @@
+[0.831s] Invoking command in '/home/lucas/taura/taurasim_ws/src/taurasim': PYTHONPATH=/home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/taurasim build --build-base /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build install --record /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/install.log --install-scripts $base/lib/taurasim --single-version-externally-managed install_data
+[1.097s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[1.098s]   warnings.warn(
+[1.107s] running egg_info
+[1.107s] writing build/taurasim/taurasim.egg-info/PKG-INFO
+[1.108s] writing dependency_links to build/taurasim/taurasim.egg-info/dependency_links.txt
+[1.108s] writing entry points to build/taurasim/taurasim.egg-info/entry_points.txt
+[1.108s] writing requirements to build/taurasim/taurasim.egg-info/requires.txt
+[1.108s] writing top-level names to build/taurasim/taurasim.egg-info/top_level.txt
+[1.111s] reading manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+[1.112s] writing manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+[1.113s] running build
+[1.113s] running build_py
+[1.113s] running install
+[1.114s] running install_lib
+[1.115s] running install_data
+[1.116s] copying launch/simulation_team.launch.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+[1.117s] running install_egg_info
+[1.120s] removing '/home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim-0.1.0-py3.10.egg-info' (and everything under it)
+[1.121s] Copying build/taurasim/taurasim.egg-info to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim-0.1.0-py3.10.egg-info
+[1.122s] running install_scripts
+[1.145s] Installing keyboard_node script to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/taurasim
+[1.145s] Installing spawn_robots script to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/taurasim
+[1.145s] Installing vision_proxy script to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/taurasim
+[1.146s] writing list of installed files to '/home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/install.log'
+[1.180s] Invoked command in '/home/lucas/taura/taurasim_ws/src/taurasim' returned '0': PYTHONPATH=/home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/taurasim build --build-base /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build install --record /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/install.log --install-scripts $base/lib/taurasim --single-version-externally-managed install_data

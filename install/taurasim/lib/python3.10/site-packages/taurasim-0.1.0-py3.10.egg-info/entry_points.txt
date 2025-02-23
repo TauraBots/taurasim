@@ -1,0 +1,5 @@
+[console_scripts]
+keyboard_node = taurasim.scripts.keyboard_node:main
+spawn_robots = taurasim.scripts.spawn_robots:main
+vision_proxy = taurasim.scripts.vision_proxy:main
+

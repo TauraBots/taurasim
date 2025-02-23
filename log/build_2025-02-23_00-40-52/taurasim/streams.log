@@ -1,0 +1,31 @@
+[2.343s] Invoking command in '/home/lucas/taura/taurasim_ws/src/taurasim': PYTHONPATH=/home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/taurasim build --build-base /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build install --record /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/install.log --install-scripts $base/lib/taurasim --single-version-externally-managed install_data
+[3.189s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[3.189s]   warnings.warn(
+[3.221s] running egg_info
+[3.224s] writing build/taurasim/taurasim.egg-info/PKG-INFO
+[3.225s] writing dependency_links to build/taurasim/taurasim.egg-info/dependency_links.txt
+[3.226s] writing entry points to build/taurasim/taurasim.egg-info/entry_points.txt
+[3.227s] writing requirements to build/taurasim/taurasim.egg-info/requires.txt
+[3.227s] writing top-level names to build/taurasim/taurasim.egg-info/top_level.txt
+[3.237s] reading manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+[3.243s] writing manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+[3.244s] running build
+[3.244s] running build_py
+[3.245s] copying taurasim/scripts/keyboard_node.py -> /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts
+[3.248s] running install
+[3.249s] running install_lib
+[3.252s] copying /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts/keyboard_node.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts
+[3.255s] byte-compiling /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts/keyboard_node.py to keyboard_node.cpython-310.pyc
+[3.261s] running install_data
+[3.261s] copying launch/simulation_team.launch.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+[3.262s] copying launch/simulation_1x1.launch.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+[3.269s] copying taurasim/scripts/keyboard_node.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/taurasim/scripts
+[3.270s] running install_egg_info
+[3.279s] removing '/home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim-0.1.0-py3.10.egg-info' (and everything under it)
+[3.280s] Copying build/taurasim/taurasim.egg-info to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim-0.1.0-py3.10.egg-info
+[3.283s] running install_scripts
+[3.354s] Installing keyboard_node script to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/taurasim
+[3.355s] Installing spawn_robots script to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/taurasim
+[3.356s] Installing vision_proxy script to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/taurasim
+[3.358s] writing list of installed files to '/home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/install.log'
+[3.454s] Invoked command in '/home/lucas/taura/taurasim_ws/src/taurasim' returned '0': PYTHONPATH=/home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base build/taurasim build --build-base /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build install --record /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/install.log --install-scripts $base/lib/taurasim --single-version-externally-managed install_data

@@ -7,7 +7,9 @@ It includes configurations for robot models, controllers, and simulation worlds.
 
 ## Requirements
 1. Gazebo-11
+    [https://classic.gazebosim.org/tutorials?tut=install_ubuntu](Tutorial Gazebo)
 2. Ros2
+    [https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html](Tutorial Ros2)
 
 ## Install Dependencies
 

@@ -46,6 +46,7 @@ def generate_launch_description():
             default_value='true',
             description='Enable keyboard control'
     )
+    
     keyboard_group = GroupAction(
         condition=IfCondition(LaunchConfiguration('keyboard')),
         actions=[

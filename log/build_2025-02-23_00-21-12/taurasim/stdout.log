@@ -1,0 +1,59 @@
+running egg_info
+creating build/taurasim/taurasim.egg-info
+writing build/taurasim/taurasim.egg-info/PKG-INFO
+writing dependency_links to build/taurasim/taurasim.egg-info/dependency_links.txt
+writing entry points to build/taurasim/taurasim.egg-info/entry_points.txt
+writing requirements to build/taurasim/taurasim.egg-info/requires.txt
+writing top-level names to build/taurasim/taurasim.egg-info/top_level.txt
+writing manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+reading manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+writing manifest file 'build/taurasim/taurasim.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build
+creating /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib
+creating /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim
+copying taurasim/__init__.py -> /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim
+creating /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts
+copying taurasim/scripts/keyboard_node.py -> /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts
+copying taurasim/scripts/vision_proxy.py -> /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts
+copying taurasim/scripts/controller_node.py -> /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts
+copying taurasim/scripts/spawn_robots.py -> /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts
+copying taurasim/scripts/__init__.py -> /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts
+running install
+running install_lib
+creating /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim
+copying /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/__init__.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim
+creating /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts
+copying /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts/keyboard_node.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts
+copying /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts/vision_proxy.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts
+copying /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts/controller_node.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts
+copying /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts/spawn_robots.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts
+copying /home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/build/lib/taurasim/scripts/__init__.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts
+byte-compiling /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts/keyboard_node.py to keyboard_node.cpython-310.pyc
+byte-compiling /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts/vision_proxy.py to vision_proxy.cpython-310.pyc
+byte-compiling /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts/controller_node.py to controller_node.cpython-310.pyc
+byte-compiling /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts/spawn_robots.py to spawn_robots.cpython-310.pyc
+byte-compiling /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim/scripts/__init__.py to __init__.cpython-310.pyc
+running install_data
+copying package.xml -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim
+copying launch/simulation_robot.launch.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+copying launch/simulation_team.launch.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+copying launch/spawn_robot.launch.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+copying launch/simulation_1x1.launch.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+copying launch/simulation_match.launch.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/launch/
+copying urdf/generic_vss_robot.xacro -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/urdf/
+creating /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/sounds
+copying sounds/pop.wav -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/sounds/
+creating /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/models/vss_field/materials/textures
+copying taurasim/scripts/keyboard_node.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/taurasim/scripts
+copying taurasim/scripts/controller_node.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/taurasim/scripts
+copying taurasim/scripts/spawn_robots.py -> /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/share/taurasim/taurasim/scripts
+running install_egg_info
+Copying build/taurasim/taurasim.egg-info to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/python3.10/site-packages/taurasim-0.1.0-py3.10.egg-info
+running install_scripts
+Installing keyboard_node script to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/taurasim
+Installing spawn_robots script to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/taurasim
+Installing vision_proxy script to /home/lucas/taura/taurasim_ws/src/taurasim/install/taurasim/lib/taurasim
+writing list of installed files to '/home/lucas/taura/taurasim_ws/src/taurasim/build/taurasim/install.log'
