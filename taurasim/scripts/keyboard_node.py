@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import pygame
 import sys
 import rclpy
@@ -5,8 +6,7 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 import argparse
 
-#!/usr/bin/env python3
-# coding=utf-8
+
 """
     File:
         keyboard_node.py
@@ -16,7 +16,6 @@ import argparse
         to send velocity commands to a Gazebo simulation.
 """
 
-# Vamos acompanhar o estado dessas teclas
 KEYS = [pygame.K_w, pygame.K_a, pygame.K_s, pygame.K_d]
 
 # Indice dos eixos x e y do joystick
@@ -25,10 +24,7 @@ Y_AXIS = 4
 INVERT_X_AXIS = True
 INVERT_Y_AXIS = True
 
-# A vel máxima do robô é 2 m/s
 MAX_LIN_VEL = 1.0  # m/s
-
-# A vel máxima do robô é 40 rad/s
 MAX_ROT_VEL = 10  # rad/s
 
 # Define a rampa de aceleração quando usando o teclado
@@ -40,7 +36,6 @@ KEYBOARD_ANGULAR_STEP = 0.03
 KEYBOARD_ANGULAR_MAX = 0.6
 
 # Os comandos vão de -126 até 126 de modo que os bytes 0xFE e 0xFF
-# nunca são utilizados
 SCALE = 126
 
 
@@ -67,7 +62,7 @@ def drawConsole(win, font, console):
 
 
 class KeyboardNode(Node):
-    def __init__(self, namespace, robots, debug=False):
+    def __init__(self, namespace, robots):
         super().__init__('vss_human_controller')
 
         self.vel_pub = []
@@ -150,12 +145,12 @@ class KeyboardNode(Node):
                 self.console.append(img)
                 self.console = self.console[-13:]
             # L1 pressionado
-            if (e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 4) or (e.type == pygame.KEYDOWN and e.key == pygame.K_e):
+            if (e.type == pygame.JOYBUTTONDOWN and e.button == 4) or (e.type == pygame.KEYDOWN and e.key == pygame.K_e):
                 self.current_robot += 1
                 self.current_robot %= len(self.vel_pub)
 
             # R1 pressionado
-            if (e.type == pygame.JOYBUTTONDOWN and e.dict['button'] == 5) or (e.type == pygame.KEYDOWN and e.key == pygame.K_q):
+            if (e.type == pygame.JOYBUTTONDOWN and e.button == 5) or (e.type == pygame.KEYDOWN and e.key == pygame.K_q):
                 self.current_robot -= 1
                 self.current_robot %= len(self.vel_pub)
 
@@ -215,11 +210,10 @@ def main(args=None):
     parser = argparse.ArgumentParser(description='Keyboard Node')
     parser.add_argument('--namespace', type=str, default='/yellow_team/robot_', help='Namespace for the robots')
     parser.add_argument('--robots', type=int, default=3, help='Number of robots')
-    parser.add_argument('--debug', action='store_true', help='Enable debug mode')
     args, unknown = parser.parse_known_args()
 
     rclpy.init(args=sys.argv)
-    node = KeyboardNode(namespace=args.namespace, robots=args.robots, debug=args.debug)
+    node = KeyboardNode(namespace=args.namespace, robots=args.robots)
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
